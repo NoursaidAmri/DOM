@@ -17,3 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
             updateTotalPrice();
         });
     });
+    document.querySelectorAll('.fa-minus-circle').forEach(button => {
+        button.addEventListener('click', () => {
+            const card = button.closest('.card');
+            const quantityElement = card.querySelector('.quantity');
+            if (parseInt(quantityElement.textContent) > 0) {
+                quantityElement.textContent = parseInt(quantityElement.textContent) - 1;
+                updateTotalPrice();
+            }
+        });
+    });
