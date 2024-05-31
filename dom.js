@@ -27,3 +27,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    document.querySelectorAll('.fa-trash-alt').forEach(button => {
+        button.addEventListener('click', () => {
+            const card = button.closest('.card-body');
+            card.remove();
+            updateTotalPrice();
+        });
+    });
+
+    document.querySelectorAll('.fa-heart').forEach(button => {
+        button.addEventListener('click', () => {
+            button.classList.toggle('liked');
+        });
+    });
+
+    updateTotalPrice();
+});
