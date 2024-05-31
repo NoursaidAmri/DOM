@@ -8,3 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         document.querySelector('.total').textContent = `${total} $`;
     };
+
+    document.querySelectorAll('.fa-plus-circle').forEach(button => {
+        button.addEventListener('click', () => {
+            const card = button.closest('.card');
+            const quantityElement = card.querySelector('.quantity');
+            quantityElement.textContent = parseInt(quantityElement.textContent) + 1;
+            updateTotalPrice();
+        });
+    });
